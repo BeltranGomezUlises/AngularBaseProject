@@ -1,0 +1,15 @@
+<div *screenBelowLarge class="title-bar-small justify-content-between">
+  <i class="material-icons md-48" (click)="menuService.toggleLeftSideMenu()">menu</i>
+  <div class="small-image-holder">
+    <img class="small-image" src="assets/logo.png" alt="">
+  </div>
+  <i class="material-icons md-48">more_horiz</i>
+</div>
+
+<div *screenLarge class="title-bar">
+  <img class="image" src="assets/logo.png" alt="Green Nations Logo">
+  <div class="menu-area">
+    <fw-top-bar></fw-top-bar>
+    <fw-menu *ngIf="!menuService.isVertical"></fw-menu>
+  </div>
+</div>
