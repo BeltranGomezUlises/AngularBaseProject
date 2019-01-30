@@ -1,18 +1,22 @@
 <nav>
   <ul>
     <li *ngFor="let item of menuService.items">
-      <fw-menu-item [item]="item" [ngClass]="{'vertical-menu': menuService.isVertical}">
+      <fw-menu-item [item]="item" 
+        [ngClass]="{'vertical-menu': menuService.isVertical}"
+        [parentIsPopup]="false">
       </fw-menu-item>
     </li>
   </ul>
 </nav>
 
-<button *ngIf="!menuService.showLeftSideMenu" class="btn btn-sm btn-secondary" [ngClass]="{ 'horizontal': !menuService.isVertical }" (click)="menuService.toggleOrientation()">
+<button *ngIf="!menuService.showLeftSideMenu" 
+  class="btn btn-sm btn-secondary" 
+  [ngClass]="{ 'btn-horizontal': !menuService.isVertical }" 
+  (click)="menuService.toggleOrientation()">
   
   <i *ngIf="menuService.isVertical" class="material-icons">
     arrow_upward
   </i>
-  
   <i *ngIf="!menuService.isVertical" class="material-icons">
     arrow_back
   </i>

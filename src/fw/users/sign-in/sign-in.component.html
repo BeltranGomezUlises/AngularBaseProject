@@ -1,0 +1,36 @@
+<div class="sign-in-form">
+  <img src="assets/logo.png" height="60px">
+  <h4>Sign In</h4>
+  <form clss="sing-in-form" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
+    <div class="form-grouop">
+      <input class="form-control" name="username" required palceholder="User Name" ngModel #username="ngModel">
+      <div [hidden]="username.valid || username.pristine" class="alert alert-danger" >
+        User Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="password" type="password" required placeholder="User Password" ngModel #password="ngModel">
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        Password is required.
+      </div>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="rememberme" ngModel> Remember Me
+      </label>
+    </div>
+    <div *ngIf="formError" class="alert alert-danger">
+      {{formError}}
+    </div>
+    <div *ngIf="!submitting">
+      <a routerLink="/register" routerLinkActive="active">Register</a>
+      <button type="submit" class="btn btn-primary">
+        Sign In
+      </button>
+    </div>
+    <div *ngIf="submitting">
+      <p class="message"> signing In...</p>
+    </div>
+  </form>
+
+</div>

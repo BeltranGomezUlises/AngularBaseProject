@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { FrameworkBodyComponent } from './framework-body/framework-body.component';
 import { ContentComponent } from './content/content.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
@@ -11,11 +11,16 @@ import { ScreenBelowLarge } from './directives/screen-below-large.directive';
 import { MenuComponent } from './menus/menu/menu.component';
 import { MenuItemComponent } from './menus/menu-item/menu-item.component';
 import { RouterModule } from '@angular/router';
+import { PopupMenuComponent } from './menus/popup-menu/popup-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignInComponent } from './users/sign-in/sign-in.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   declarations: [
     FrameworkBodyComponent,
@@ -26,7 +31,9 @@ import { RouterModule } from '@angular/router';
     ScreenLarge,
     ScreenBelowLarge,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    PopupMenuComponent,
+    SignInComponent
   ],
   exports: [
     FrameworkBodyComponent,
@@ -35,7 +42,10 @@ import { RouterModule } from '@angular/router';
     TopBarComponent,
     StatusBarComponent,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    PopupMenuComponent,
+    SignInComponent,
+    FormsModule
   ]
 })
 export class FwModule { }

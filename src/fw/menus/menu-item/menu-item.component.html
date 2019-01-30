@@ -1,9 +1,33 @@
-<div class="menu-item" 
-[routerLink]="item.route" 
-routerLinkActive="router-link-active" [ngClass]="{'vertical-menu': menuService.isVertical}"
-(click)="menuService.showLeftSideMenu = false">
-  <i class="material-icons md-18" style="vertical-align: sub;">
+<div class="menu-item" [routerLink]="item.route" [ngClass]="{'vertical-menu': menuService.isVertical, 'router-link-active': isActiveRoute }">
+  <i class="material-icons md-18" style="vertical-align: sub; margin-right: 8px;">
     {{item.icon}}
   </i>
   <span>{{ item.text.toUpperCase() }}</span>
+
+  <i *ngIf="item.submenu && !parentIsPopup && !menuService.isVertical" 
+    class="material-icons md-24 chevron-icon">
+      expand_more
+  </i>
+  <i *ngIf="item.submenu && parentIsPopup && !menuService.isVertical" 
+    class="material-icons md-18 chevron-icon">
+    arrow_forward_ios
+  </i>
+
+  <i *ngIf="item.submenu && menuService.isVertical && !(mouseInPopup || mouseInItem)" 
+    class="material-icons md-18 chevron-icon">
+    arrow_back_ios
+  </i>
+
+  <i *ngIf="item.submenu && menuService.isVertical && (mouseInPopup || mouseInItem)" 
+    class="material-icons md-24 chevron-icon">
+    expand_more
+  </i>
+
 </div>
+
+<fw-popup-menu *ngIf="mouseInPopup || mouseInItem" [menu]="item.submenu" [ngClass]="{'vertical-menu':menuService.isVertical}"
+  (mouseleave)="onPopupMouseLeave($event)" (mouseenter)="onPopupMouseEnter($event)" [style.left.px]="popupLeft"
+  [style.top.px]="popupTop"
+  @visibilityChanged>
+
+</fw-popup-menu>

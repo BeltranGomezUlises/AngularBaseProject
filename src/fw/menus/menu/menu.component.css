@@ -22,3 +22,7 @@ ul {
 li {
     display: inline;
 }
+
+.btn-horizontal{
+    margin-left: 20px;
+}

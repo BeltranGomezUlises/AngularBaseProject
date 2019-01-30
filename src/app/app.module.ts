@@ -4,18 +4,24 @@ import { FormsModule } from '@angular/forms'
 import { FwModule } from '../fw/fw.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ContriesComponent } from './contries/contries.component';
 import { SettingsComponent } from './settings/settings.component';
 import { RouterModule } from '@angular/router';
 
 import {appRoutes} from './app.routing';
+import { CountryListComponent } from './country-list/country-list.component';
+import { CountryMaintenanceComponent } from './country-maintenance/country-maintenance.component';
+import { CountryDetailComponent } from './country-detail/country-detail.component';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ContriesComponent,
-    SettingsComponent
+    SettingsComponent,
+    CountryListComponent,
+    CountryMaintenanceComponent,
+    CountryDetailComponent,
+    AuthenticatedUserComponent
   ],
   imports: [
     FwModule,
