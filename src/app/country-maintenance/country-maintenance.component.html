@@ -1,3 +1,39 @@
-<p>
-  country-maintenance works!
-</p>
+<h3>Country maintenance</h3>
+<button class="btn btn-success" (click)="createCountry()">Add new country</button>
+<div><br></div>
+<fw-loading *ngIf="loading"></fw-loading>
+<div *ngIf="!loading" class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">epi index</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of countries">
+        <th scope="row">{{c.id}}</th>
+        <td>{{c.name}}</td>
+        <td>{{c.epiIndex}}</td>
+        <td *ngIf="c.id != deleteId">
+          <button class="btn btn-sm btn-primary"
+           (click)="showCountryDetail(c.id)">Detail</button>
+           <button class="btn btn-sm btn-warning"
+           (click)="editCountry(c.id)">Edit</button>
+           <button class="btn btn-sm btn-danger"
+           (click)="deleteCountryQuestion(c.id)">Delete</button>
+        </td>
+        <td *ngIf="c.id === deleteId && !isDeleting">
+          Delete this country?
+          <button class="btn btn-sm" (click)="cancelDelete()">Cancel</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteCountry(c.id)">Cancel</button>
+        </td>
+        <td *ngIf="c.id === deleteId && isDeleting">
+          Deleting          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

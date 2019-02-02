@@ -9,6 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "author": {
+    "name":"Ulises Beltran",
+    "email": "beltrangomezulises@gmail.com",
+    "url": "https://github.com/BeltranGomezUlises"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",

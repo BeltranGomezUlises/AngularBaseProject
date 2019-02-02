@@ -4,7 +4,7 @@ export let initialMenuItems: Array<MenuItem> = [
     {
         text: "Dashboard",
         icon: "dashboard",
-        route: "dashboard",
+        route: "/authenticated/dashboard",
         submenu: null
     },
     {
@@ -20,19 +20,19 @@ export let initialMenuItems: Array<MenuItem> = [
                     {
                         text: "México",
                         icon: "satellite",
-                        route: "countries/1",
+                        route: "/authenticated/countries/1",
                         submenu: null
                     },
                     {
                         text: "USA",
                         icon: "satellite",
-                        route: "countries/2",
+                        route: "/authenticated/countries/2",
                         submenu: null
                     },
                     {
                         text: "Europe",
                         icon: "satellite",
-                        route: "countries/3",
+                        route: "/authenticated/countries/3",
                         submenu: null
                     }
                 ]
@@ -53,13 +53,13 @@ export let initialMenuItems: Array<MenuItem> = [
             {
                 text: "Country list",
                 icon: "playlist_add_check",
-                route: "countries-maintenance",
+                route: "/authenticated/countries-maintenance",
                 submenu: null
             },
             {
                 text: "Settings",
                 icon: "settings",
-                route: "settings",
+                route: "/authenticated/settings",
                 submenu: null
             }
         ]

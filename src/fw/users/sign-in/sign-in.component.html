@@ -2,8 +2,8 @@
   <img src="assets/logo.png" height="60px">
   <h4>Sign In</h4>
   <form clss="sing-in-form" #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
-    <div class="form-grouop">
-      <input class="form-control" name="username" required palceholder="User Name" ngModel #username="ngModel">
+    <div class="form-group">
+      <input class="form-control" name="username" required placeholder="User Name" ngModel #username="ngModel">
       <div [hidden]="username.valid || username.pristine" class="alert alert-danger" >
         User Name is required.
       </div>

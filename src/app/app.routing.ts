@@ -6,17 +6,27 @@ import { CountryMaintenanceComponent } from './country-maintenance/country-maint
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 import { SignInComponent } from 'src/fw/users/sign-in/sign-in.component';
+import { RegisterUserComponent } from 'src/fw/users/register-user/register-user.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 export const appRoutes: Routes = [
-    { path: 'signin', component: SignInComponent },
+    { path: 'sign-in', component: SignInComponent },
+    { path: 'register', component: RegisterUserComponent },
     {
-        path: 'authenticated', component: AuthenticatedUserComponent, children: [
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'settings', component: SettingsComponent },
-            { path: 'countries-maintenance', component: CountryMaintenanceComponent },
-            { path: 'countries/:id', component: CountryDetailComponent },
+        path: 'authenticated', component: AuthenticatedUserComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: '', canActivateChild: [AuthGuard], children: [
+                    { path: '', component: DashboardComponent },
+                    { path: 'dashboard', component: DashboardComponent },
+                    { path: 'settings', component: SettingsComponent },
+                    { path: 'countries-maintenance', component: CountryMaintenanceComponent },
+                    { path: 'countries/:id/:operation', component: CountryDetailComponent }
+                ]
+            }
         ]
-    },    
+    },
     { path: '', component: SignInComponent },
     { path: '**', component: SignInComponent },
 ];
